@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://waterqun.com/ros-install/ros-install.png">
 <meta property="article:published_time" content="2023-03-14T11:08:45.000Z">
-<meta property="article:modified_time" content="2023-06-26T04:12:48.082Z">
+<meta property="article:modified_time" content="2023-06-26T13:30:21.051Z">
 <meta property="article:author" content="WaterQun">
 <meta property="article:tag" content="ROS">
 <meta property="article:tag" content="Ubuntu">
@@ -306,7 +306,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月26日 中午
+                    本文最后更新于：2023年6月26日 晚上
                   
                 
               </p>
@@ -317,12 +317,12 @@
                 <p class="note note-warning">ROS2的安装比较简单，这篇文章里仅介绍ROS的安装，关于ROS2安装可以查看其它教程</p>
 
 <h2 id="一、什么是ROS"><a href="#一、什么是ROS" class="headerlink" title="一、什么是ROS?"></a>一、什么是ROS?</h2><p>机器人是一个系统工程，它涉及机械、电子、控制、通信、软件等诸多学科。以前，开发一个机器人需要花很大的功夫，你需要设计机械、画电路板、写驱动程序、设计通信架构、组装集成、调试、以及编写各种感知决策和控制算法，每一个任务都需要花费大量的时间，因此仅靠一个人的力量造出一个动力超强的人形机器人机甲是不可能的。</p>
-<div align=center><img src="ros-install/ros.png" srcset="/img/loading.gif" lazyload width=30%/></div>
+<div align=center><img src="ros-install/ros.png" srcset="/img/loading.gif" lazyload width=50%/></div>
 
 <p>然而随着技术进步，机器人产业分工开始走向细致化、多层次化，如今的电机、底盘、激光雷达、摄像头、机械臂等等元器件都有不同厂家专门生产。社会分工加速了机器人行业的发展。而各个部件的集成就需要一个统一的软件平台，在机器人领域，这个平台就是机器人操作系统ROS。</p>
 <p>ROS是一个适用于机器人编程的<strong>框架</strong>，这个框架把原本松散的零部件耦合在了一起，为他们提供了<strong>通信架构</strong>。ROS虽然叫做操作系统，但并非Windows、Mac那样通常意义的操作系统，它只是连接了操作系统和你开发的ROS应用程序，所以它也算是一个中间件，基于ROS的应用程序之间建立起了沟通的桥梁，所以也是运行在Linux上的<strong>运行时环境</strong>，在这个环境上，机器人的感知、决策、控制算法可以更好的组织和运行。</p>
 <h2 id="二、ROS版本选择"><a href="#二、ROS版本选择" class="headerlink" title="二、ROS版本选择"></a>二、ROS版本选择</h2><p>ROS目前已经支持在很多系统上安装部署了，但官方支持的平台仍然是Ubuntu。时至今日ROS已经相继更新推出了多种版本，供不同版本的Ubuntu开发者使用。为了提供最稳定的开发环境，ROS的每个版本都有一个推荐运行的Ubuntu版本。</p>
-<div align=center><img src="ros-install/version.png" srcset="/img/loading.gif" lazyload width=60%/></div>
+<div align=center><img src="ros-install/version.png" srcset="/img/loading.gif" lazyload width=70%/></div>
 
 <p>如果你还没有安装Ubuntu，建议选择<a target="_blank" rel="noopener" href="https://releases.ubuntu.com/20.04.5/"> Ubuntu 20.04 LTS </a>版本，它有更长的维护周期，且功能更完善。</p>
 <p>如果你已经安装Ubuntu，请确定系统版本，在终端中输入<span class="label label-default"> cat &#x2F;etc&#x2F;issue </span>确定Ubuntu版本号，然后选择对应的ROS版本。如果没有安装正确的ROS版本，就会出现各种各样的依赖错误，所以安装时请谨慎。</p>
@@ -367,6 +367,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">roscore<br></code></pre></td></tr></table></figure>
 
 <p>如果出现下图所示，那么说明ROS正常启动了！</p>
+<div align=center><img src="ros-install/roscore.png" srcset="/img/loading.gif" lazyload width=90%/></div>
 
                 
               </div>
