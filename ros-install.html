@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://waterqun.com/ros-install/ros-install.png">
 <meta property="article:published_time" content="2023-03-14T11:08:45.000Z">
-<meta property="article:modified_time" content="2023-07-04T07:27:53.932Z">
+<meta property="article:modified_time" content="2023-07-04T07:29:23.796Z">
 <meta property="article:author" content="WaterQun">
 <meta property="article:tag" content="ROS">
 <meta property="article:tag" content="Ubuntu">
@@ -351,7 +351,7 @@
 <p>在这里，命令<span class="label label-default"> source &#x2F;opt&#x2F;ros&#x2F;noetic&#x2F;setup.bash </span>只在当前终端有作用，即具有单一时效性，要想每次新开一个终端都不用重新配置环境，就用echo语句将命令添加到bash会话中，使得每次打开一个新的终端后，ROS的环境变量都能够自动配置好。</p>
 <p class="note note-warning">ROS Noetic官方安装教程到这里已经全部结束了，Noetic版本可不进行后续安装步骤，请根据需要安装ROS工具。</p>
 
-<h3 id="5-、rosdep初始化"><a href="#5-、rosdep初始化" class="headerlink" title="5(*)、rosdep初始化"></a>5(*)、rosdep初始化</h3><p>在使用许多ROS工具之前，我们需要初始化rosdep。rosdep能够轻松地为要编译的源代码安装系统依赖项，同时也是某些ROS核心功能组件所必需用到的工具。首先，我们先安装rosdep：</p>
+<h3 id="5-、rosdep初始化"><a href="#5-、rosdep初始化" class="headerlink" title="5*、rosdep初始化"></a>5*、rosdep初始化</h3><p>在使用许多ROS工具之前，我们需要初始化rosdep。rosdep能够轻松地为要编译的源代码安装系统依赖项，同时也是某些ROS核心功能组件所必需用到的工具。首先，我们先安装rosdep：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install python-rosdep<br></code></pre></td></tr></table></figure>
 
 <p>在官方的rosdep使用流程中，我们会有如下两个步骤:</p>
@@ -360,7 +360,7 @@
 <p>因为网络原因，我们使用<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/rosdistro/">清华源rosdistro镜像</a>方案，替换为以下步骤：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">手动模拟 rosdep init</span><br>sudo mkdir -p /etc/ros/rosdep/sources.list.d/<br>sudo curl -o /etc/ros/rosdep/sources.list.d/20-default.list https://mirrors.tuna.tsinghua.edu.cn/github-raw/ros/rosdistro/master/rosdep/sources.list.d/20-default.list<br><span class="hljs-meta prompt_"># </span><span class="language-bash">为 rosdep update 换源</span><br>export ROSDISTRO_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/rosdistro/index-v4.yaml<br>rosdep update<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">每次 rosdep update 之前，均需要增加该环境变量</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">为了持久化该设定，可以将其写入 .bashrc 中，例如</span><br>echo &#x27;export ROSDISTRO_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/rosdistro/index-v4.yaml&#x27; &gt;&gt; ~/.bashrc<br></code></pre></td></tr></table></figure>
 
-<h3 id="6-、构建包的依赖"><a href="#6-、构建包的依赖" class="headerlink" title="6(*)、构建包的依赖"></a>6(*)、构建包的依赖</h3><p>到目前为止，我们已经安装了运行核心ROS包所需的内容。为了创建和管理自己的 ROS 工作区，有各种各样的工具和需求分别分布。<br>要安装这个工具和其他构建ROS包的依赖项，请运行:</p>
+<h3 id="6-、构建包的依赖"><a href="#6-、构建包的依赖" class="headerlink" title="6*、构建包的依赖"></a>6*、构建包的依赖</h3><p>到目前为止，我们已经安装了运行核心ROS包所需的内容。为了创建和管理自己的 ROS 工作区，有各种各样的工具和需求分别分布。<br>要安装这个工具和其他构建ROS包的依赖项，请运行:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential<br></code></pre></td></tr></table></figure>
 
 <h2 id="四、测试ROS"><a href="#四、测试ROS" class="headerlink" title="四、测试ROS"></a>四、测试ROS</h2><p>首先启动ROS，输入代码运行roscore：</p>
